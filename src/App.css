@@ -1,0 +1,122 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.body{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black url("./backgroundimg.jpg") no-repeat center center;
+  background-size: cover;
+}
+
+.cardarea{
+  width: 800px;
+  margin: 10px;
+  /* background-color: rgba(255, 255, 255, 70%); */
+  background-color: rgba(22, 48, 73, 70%);
+  text-align: center;
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 50%);
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerarea h3{
+  font-weight: 500;
+  color: #fff;
+  font-size: 35px;
+}
+
+.headerarea h4{
+  color: #fff;
+  font-size: 25px;
+  font-weight: 350;
+  margin-bottom: 30px;
+}
+
+.addbtn{
+  background-color: #6ab0c7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 15px;
+  transition: all .5s;
+  text-align: start;
+}
+
+.addbtn:hover{
+  background-color: rgba(93, 159, 181,60%);
+}
+
+.divoflist{
+  margin: 20px auto;
+  width: 100%;
+}
+
+.Singletodolistdiv{
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 5%);
+  color: #ffffff;
+  width: 100%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 30%);
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 1s;
+  height: 40px;
+}
+
+.Singletodolistdiv:hover{
+  background-color: rgba(255, 255, 255, 20%); 
+}
+
+.crosssign{
+  padding: 4px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid red;
+  border-radius: 5px;
+  color: red;
+  font-size: large;
+  margin: 2px auto 2px 15px;
+  transition: all .3s;
+}
+
+.crosssign:hover{
+  background-color: red;
+  color: white;
+}
+
+.notcolumn{
+  display: flex;
+  align-items: center;
+}
+
+.clearallbtn{
+  width: 80%;
+  background-color: rgba(255, 0, 0, 50%);
+  color: white;
+  padding: 5px;
+  border: none;
+  font-size: x-large;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all .5s;
+}
+
+.clearallbtn:hover{
+  background-color: rgba(255, 0, 0, 90%);
+}
