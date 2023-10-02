@@ -120,3 +120,58 @@
 .clearallbtn:hover{
   background-color: rgba(255, 0, 0, 90%);
 }
+
+.inputarea{
+  width: 100%;
+  margin: 10px auto;
+}
+
+.maininputtxt{
+  width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.maininputdate{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 10px auto;
+}
+
+.maininputdate select{
+  width: 30%;
+  font-size: large;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10px;
+  border: none; 
+}
+
+.maininputdate select option{
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+}
+
+.sortbtn{
+  margin: 10px auto;
+  width: 80%;
+  background-color: rgba(0, 132, 255, 0.5);
+  color: white;
+  padding: 5px;
+  border: none;
+  font-size: x-large;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all .5s;
+}
+
+.sortbtn:hover{
+  background-color: rgba(0, 132, 255, 90%);
+}
