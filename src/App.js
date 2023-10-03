@@ -158,7 +158,6 @@ function App() {
           <button onClick={() => {
             settodolist([]);
             setisclearallbtn(false);
-            sortTodoList()
           }} className='clearallbtn'>
             Clear All
           </button>
