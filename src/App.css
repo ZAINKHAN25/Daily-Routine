@@ -175,3 +175,7 @@
 .sortbtn:hover{
   background-color: rgba(0, 132, 255, 90%);
 }
+
+.colorred{
+  color: red;
+}

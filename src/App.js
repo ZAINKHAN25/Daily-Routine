@@ -2,23 +2,12 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  let maindata = JSON.parse(localStorage.getItem("maindata")) || [];
+
   let date = new Date().toUTCString().slice(5, 16);
   let [isnewbtntrue, setisnewbtntrue] = useState(false);
-  let [isclearallbtn, setisclearallbtn] = useState(true);
-  let [todolist, settodolist] = useState([
-    {
-      mainvalue: "Go to Gym",
-      min: 40,
-      hour: '07',
-      amorpm: "Pm",
-    },
-    {
-      mainvalue: "Learn Something New",
-      min: "00",
-      hour: 10,
-      amorpm: "Pm",
-    },
-  ]);
+  let [isclearallbtn, setisclearallbtn] = useState(maindata === [] ? true : false);
+  let [todolist, settodolist] = useState(maindata);
   let [selectedhours, setselectedhours] = useState('01');
   let [selectedminutes, setselectedminutes] = useState('00');
   let [selectedamorpm, setselectedamorpm] = useState('Pm');
@@ -26,21 +15,9 @@ function App() {
   let hours = [];
   let minutearray = [];
 
-  for (let i = 0; i < 12; i++) {
-    if (i < 9) {
-      hours.push(`0${i + 1}`);
-    } else {
-      hours.push(i + 1);
-    }
-  }
-  
-  for (let i = 0; i < 60; i++) {
-    if (i < 9) {
-      minutearray.push(`0${i}`);
-    } else {
-      minutearray.push(i + 1);
-    }
-  }
+  var todaydate = new Date();
+
+  // ... (your other code)
 
   function checktrueofbtn(e) {
     setinputtxt(e.target.value);
@@ -52,22 +29,30 @@ function App() {
   }
 
   function addinputxt() {
-    settodolist(oldArray => [...oldArray, {
+    const newTodo = {
       mainvalue: inputtxt,
       min: selectedminutes,
       hour: selectedhours,
       amorpm: selectedamorpm,
-    }]);
+    };
+    maindata.push(newTodo);
+    localStorage.setItem("maindata", JSON.stringify(maindata))
+    console.log(maindata);
+
+
+    // maindata = copyofmaindata;
+
+    settodolist(maindata);
     setisclearallbtn(true);
     setinputtxt('');
     setisnewbtntrue(false);
   }
 
   function removesinglelist(index) {
-    const copyoftodolist = [...todolist];
-    copyoftodolist.splice(index, 1);
-    settodolist(copyoftodolist);
-    if (copyoftodolist.length) {
+    maindata.splice(index, 1);
+    localStorage.setItem("maindata", JSON.stringify(maindata))
+    settodolist(maindata);
+    if (maindata.length) {
       setisclearallbtn(true);
     } else {
       setisclearallbtn(false);
@@ -105,6 +90,22 @@ function App() {
         </span>
       </div>
     );
+  }
+
+  for (let i = 0; i < 12; i++) {
+    if (i < 9) {
+      hours.push(`0${i + 1}`);
+    } else {
+      hours.push(i + 1);
+    }
+  }
+  
+  for (let i = 0; i < 60; i++) {
+    if (i < 9) {
+      minutearray.push(`0${i}`);
+    } else {
+      minutearray.push(i + 1);
+    }
   }
 
   return (
@@ -156,16 +157,18 @@ function App() {
         </div>
         {isclearallbtn && (
           <button onClick={() => {
-            settodolist([]);
+            maindata = [];
+            localStorage.setItem("maindata", JSON.stringify(maindata))
+            settodolist(maindata);
             setisclearallbtn(false);
           }} className='clearallbtn'>
             Clear All
           </button>
         )}
         {
-          isclearallbtn && (<button onClick={sortTodoList} className='sortbtn'>
+          isclearallbtn === true ? todolist.length > 1 ? (<button onClick={sortTodoList} className='sortbtn'>
           Sort by AM/PM
-        </button>)
+        </button>) : '' : ''
         }  
       </div>
     </div>
