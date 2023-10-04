@@ -18,7 +18,6 @@ function App() {
  
   var todaydate = new Date();
 
-  // ... (your other code)
 
   function checktrueofbtn(e) {
     setinputtxt(e.target.value);
@@ -41,7 +40,6 @@ function App() {
     console.log(maindata);
 
 
-    // maindata = copyofmaindata;
 
     settodolist(maindata);
     setisclearallbtn(true);
