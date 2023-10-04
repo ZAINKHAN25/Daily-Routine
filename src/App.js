@@ -6,6 +6,7 @@ function App() {
 
   let date = new Date().toUTCString().slice(5, 16);
   let [isnewbtntrue, setisnewbtntrue] = useState(false);
+  let [isampmtrue,setisampmtrue] = useState(false)
   let [isclearallbtn, setisclearallbtn] = useState(maindata === [] ? true : false);
   let [todolist, settodolist] = useState(maindata);
   let [selectedhours, setselectedhours] = useState('01');
@@ -14,7 +15,7 @@ function App() {
   let [inputtxt, setinputtxt] = useState('');
   let hours = [];
   let minutearray = [];
-
+ 
   var todaydate = new Date();
 
   // ... (your other code)
@@ -46,6 +47,7 @@ function App() {
     setisclearallbtn(true);
     setinputtxt('');
     setisnewbtntrue(false);
+    setisampmtrue(true)
   }
 
   function removesinglelist(index) {
@@ -77,6 +79,7 @@ function App() {
 
     const sortedList = [...amList, ...pmList];
     settodolist(sortedList);
+    setisampmtrue(false)
   }
 
   function Singletodolistdiv({ singletodovalue, singleindexnum }) {
@@ -166,7 +169,7 @@ function App() {
           </button>
         )}
         {
-          isclearallbtn === true ? todolist.length > 1 ? (<button onClick={sortTodoList} className='sortbtn'>
+          isclearallbtn === true ? todolist.length > 1 ? isampmtrue && (<button onClick={sortTodoList} className='sortbtn'>
           Sort by AM/PM
         </button>) : '' : ''
         }  
